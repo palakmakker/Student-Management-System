@@ -1,0 +1,152 @@
+import java.util.*;
+class StudentManagementSystem{
+static class basicInfo {
+String name[]=new String[100];
+String fathersName[]=new String[100];
+String mothersName[]=new String[100];
+String gender[]=new String[100];
+String section[]=new String[100];
+int age[]=new int[100];
+int year[]=new int[100];
+int regNO=0;
+int choice;
+Scanner sc=new Scanner(System.in);
+void select(){
+System.out.println("Enter your choice\nEnter 1 for adding student
+details \nEnter 2 for changing student details \nEnter 3 for removing student
+details\nEnter 4 for finding student details \n");
+int choice=sc.nextInt();
+switch(choice){
+case 1:
+addStudent();
+main_menu();
+break;
+case 2:
+changeStudent();
+main_menu();
+break;
+case 3:
+deleteStudent();
+main_menu();
+break;
+case 4:
+findStudent();
+main_menu();
+break;
+default:
+break;
+}
+}
+void main_menu(){
+System.out.println("Enter 1 for main menu and other key to
+exit");
+int choose=sc.nextInt();
+switch(choose){
+case 1:
+select();
+default:
+System.exit(0);
+}
+}
+void addStudent(){
+Scanner sc1=new Scanner(System.in);
+Scanner sc2=new Scanner(System.in);
+regNO=regNO+1;
+try
+ {
+
+System.out.println("Enter the name of student");
+name[regNO]=sc1.nextLine();
+
+ }
+
+ catch(ArrayIndexOutOfBoundsException ex)
+ {
+ System.out.println("Maximum number of registration crossed So kindly
+close the registration");
+ }
+System.out.println("Enter the Father's name of student");
+fathersName[regNO]=sc1.nextLine();
+System.out.println("Enter the Mother's name of student");
+mothersName[regNO]=sc1.nextLine();
+System.out.println("Enter the section of student");
+section[regNO]=sc1.nextLine();
+System.out.println("Enter the age of student");
+try{
+age[regNO]=sc1.nextInt();}
+catch(InputMismatchException ex){
+System.out.println("Invalid input kindly add your age
+later");
+}
+System.out.println("Enter the gender of student");
+gender[regNO]=sc2.nextLine();
+System.out.println("Your registration number is "+regNO);
+}
+void changeStudent(){
+Scanner sc3=new Scanner(System.in);
+System.out.println("Enter the registration Number:");
+int changedReg=sc.nextInt();
+System.out.println("For changing name Enter 1\n For
+changing Father's name Enter 2\nFor changing Mother's name Enter 3\nFor
+changing section Enter 4\n For changing age Enter 5\nFor changing gender
+Enter 6");
+int change=sc.nextInt();
+switch(change){
+case 1:
+name[changedReg]=sc3.nextLine();
+break;
+case 2:
+fathersName[changedReg]=sc3.nextLine();
+break;
+case 3:
+mothersName[changedReg]=sc3.nextLine();
+break;
+case 4:
+section[changedReg]=sc3.nextLine();
+break;
+case 5:
+age[changedReg]=sc3.nextInt();
+break;
+case 6:
+gender[changedReg]=sc3.nextLine();
+break;
+default:
+break;
+}
+}
+void deleteStudent(){
+System.out.println("Enter the registration number for
+deleting student details");
+int delStu=sc.nextInt();
+name[delStu]=null;
+fathersName[delStu]=null;
+mothersName[delStu]=null;
+section[delStu]=null;
+age[delStu]=(Integer) null;
+gender[delStu]=null;
+}
+void findStudent(){
+System.out.println("Enter the registration number:");
+int findStu=sc.nextInt();
+System.out.println("name:"+name[findStu]);
+System.out.println("Father's
+name:"+fathersName[findStu]);
+System.out.println("Mother's
+name:"+mothersName[findStu]);
+System.out.println("section:"+section[findStu]);
+System.out.println("age:"+age[findStu]);
+System.out.println("gender:"+gender[findStu]);
+}
+}
+static class old extends basicInfo{
+void cgpa(){
+Scanner sc3=new Scanner(System.in);
+int Cgpa=sc3.nextInt();
+}
+}
+public static void main(String[] args) {
+StudentManagementSystem.basicInfo o1= new
+StudentManagementSystem.basicInfo();
+o1.select();
+}
+}
